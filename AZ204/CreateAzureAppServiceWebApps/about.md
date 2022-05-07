@@ -8,3 +8,5 @@ Applications run and scale with ease on both Windows and Linux-based environment
 * Deployment slots
 * App Service on Linux
     * Limitations
+
+### Examine Azure App Service plans
