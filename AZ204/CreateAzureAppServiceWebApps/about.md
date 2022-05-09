@@ -10,3 +10,5 @@ Applications run and scale with ease on both Windows and Linux-based environment
     * Limitations
 
 ### Examine Azure App Service plans
+### Deploy to App Service
+
