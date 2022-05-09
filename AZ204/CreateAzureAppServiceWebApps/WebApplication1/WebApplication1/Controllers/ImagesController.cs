@@ -4,22 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
-using WebApplication1;
 
-namespace Api.Controllers
+namespace WebApplication1
 {
     [ApiController]
     [Route("/")]
     public class ImagesController : ControllerBase
     {
-        private HttpClient _httpClient;
-        private Options _options;
+        private readonly Options _options;
 
-        public ImagesController(HttpClient httpClient, Options options)
+        public ImagesController(Options options)
         {
-            _httpClient = httpClient;
             _options = options;
         }
 
@@ -47,7 +43,7 @@ namespace Api.Controllers
                 );
             }
 
-            Console.Out.WriteLine("Got Images");
+            Console.WriteLine("Got Images");
             return Ok(results);
         }
 
