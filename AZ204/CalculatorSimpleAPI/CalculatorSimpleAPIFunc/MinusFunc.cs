@@ -1,6 +1,6 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Net;
@@ -12,9 +12,9 @@ namespace CalculatorSimpleAPIFunc
     public static class MinusFunc
     {
         [FunctionName("MinusFunc")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequestMessage req, ILogger log)
         {
-            log.Info("Minus operation");
+            log.LogInformation("Minus operation");
 
             // parse query parameter
             var val1 = req.GetQueryNameValuePairs().FirstOrDefault(q => String.Compare(q.Key, "val1", StringComparison.OrdinalIgnoreCase) == 0).Value;
